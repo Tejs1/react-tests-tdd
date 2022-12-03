@@ -7,7 +7,9 @@ export default function StarbucksInput({ name, value, onChange, error }) {
       <input
         id={name}
         value={value}
-        onChange={(e) => (onChange ? onChange(e.currentTarget.value) : null)}
+        onChange={(e) => {
+          if (onChange) onChange(e.currentTarget.value);
+        }}
       />
       {error && <p>{error}</p>}
     </>
